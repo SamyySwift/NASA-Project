@@ -9,7 +9,7 @@
     "client": "npm start --prefix frontend",
     "watch": "npm-run-all --parallel client server",
     "deploy": "npm run build --prefix frontend && npm start --prefix backend",
-    "test":"npm test --prefix backend && npm run test --prefix frontend",
+    "test":"npm run test --prefix frontend && npm test --prefix backend",
     "deploy-cluster":"npm run build --prefix frontend && npm run cluster --prefix backend"
   },
   "keywords": [],
