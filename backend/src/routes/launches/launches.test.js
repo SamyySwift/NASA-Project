@@ -1,12 +1,17 @@
 const request = require("supertest");
 const app = require("../../app");
-const { mongoConnect } = require("../../services/mongo");
+const { mongoConnect, mongoDisconnect } = require("../../services/mongo");
 
 
 describe("Test Launhes API", ()=>{
     beforeAll(async()=>{
         await mongoConnect();
     })
+
+    afterAll(async()=>{
+        await mongoDisconnect();
+    })
+
 
     describe("Test Get", ()=>{
         test("It should return 200 status code", async ()=>{
