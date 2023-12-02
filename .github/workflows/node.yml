@@ -22,6 +22,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{matrix.node-version}}
+      
+      - name: MongoDB in GitHub Actions
+        uses: supercharge/mongodb-github-action@1.10.0
+        with:
+          mongodb-version: ${{matrix.mongodb-version}}
 
       - name: Install Dependencies
         run: npm run install
@@ -29,10 +34,7 @@ jobs:
       - name: Build
         run: npm run build --prefix frontend
 
-      - name: MongoDB in GitHub Actions
-        uses: supercharge/mongodb-github-action@1.10.0
-        with:
-          mongodb-version: ${{matrix.mongodb-version}}
+      
             
       
       - name: Run All Tests
