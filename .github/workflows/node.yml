@@ -8,11 +8,17 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - name: Use Node.js version 21
-        uses: actions/setup-node@v3
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js version 21
+        uses: actions/setup-node@v4
         with:
           node-version: "21"
-      - run: npm install 
-      - run: npm run build --prefix frontend
+
+      - name: Install Dependencies
+        run: npm install react-scripts
+
+      - name: Build
+        run: npm run build --prefix frontend
 
